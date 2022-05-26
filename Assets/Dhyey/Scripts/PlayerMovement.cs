@@ -80,4 +80,5 @@ public class PlayerMovement : MonoBehaviour
                 transform.Rotate(0, 90, 0);
             }
         }
-    }}
+    }
+}
