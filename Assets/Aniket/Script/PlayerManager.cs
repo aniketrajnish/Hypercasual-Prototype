@@ -5,19 +5,21 @@ using UnityEngine.SceneManagement;
 
 public class PlayerManager : MonoBehaviour
 {
-    public MovementJoystick movementJoystick;
+    MovementJoystick mj;
     [SerializeField] float playerSpeed = 10f;
     [SerializeField] float rotationSpeed = 800f;
-    [SerializeField] GameManager gm;
+    GameManager gm;
     bool isGrounded;
     [HideInInspector] public int playerHealth = 250;
     public static PlayerManager instance;
     bool dead, changed;
 
-    void Awake()
+    private void Start()
     {
         instance = this;
         isGrounded = false;
+        gm = GameManager.instance;
+        mj = MovementJoystick.instance;
     }
 
     private void Update()
@@ -43,8 +45,8 @@ public class PlayerManager : MonoBehaviour
 
     void RotatePlayer()
     {
-        float horizontalInput = movementJoystick.joystickVector.x;
-        float verticalInput = movementJoystick.joystickVector.y;
+        float horizontalInput = mj.joystickVector.x;
+        float verticalInput = mj.joystickVector.y;
 
         Vector3 movementDirection = new Vector3(horizontalInput, 0, verticalInput);
         movementDirection.Normalize();
@@ -61,11 +63,11 @@ public class PlayerManager : MonoBehaviour
     {
         Vector3 velocity;
 
-        if (isGrounded && movementJoystick.joystickVector.y != 0)
+        if (isGrounded && mj.joystickVector.y != 0)
         {
-            velocity = new Vector3(movementJoystick.joystickVector.x * playerSpeed,
+            velocity = new Vector3(mj.joystickVector.x * playerSpeed,
             0,
-            movementJoystick.joystickVector.y * playerSpeed);
+            mj.joystickVector.y * playerSpeed);
 
             transform.position += velocity * Time.deltaTime;
         }
