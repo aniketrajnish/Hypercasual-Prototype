@@ -14242,6 +14242,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4752025474896976668, guid: 36b7f4313eff3834c8a28f98b72fa64d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5384411045310169510, guid: 36b7f4313eff3834c8a28f98b72fa64d, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -14309,7 +14313,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5022021698768418315, guid: 62b7387284ac15645b2c4ca1436965e6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 17.09
+      value: 16.79
       objectReference: {fileID: 0}
     - target: {fileID: 5022021698768418315, guid: 62b7387284ac15645b2c4ca1436965e6, type: 3}
       propertyPath: m_LocalRotation.w
@@ -14343,6 +14347,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rafale
       objectReference: {fileID: 0}
+    - target: {fileID: 5022021698768418316, guid: 62b7387284ac15645b2c4ca1436965e6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7733570454809053427, guid: 62b7387284ac15645b2c4ca1436965e6, type: 3}
+      propertyPath: isRunning
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62b7387284ac15645b2c4ca1436965e6, type: 3}
 --- !u!1001 &6866754220185155469
@@ -14352,9 +14364,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 148242516168507288, guid: 7dd0079dec2f3864da6988e859907c28, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3297048997259378954, guid: 7dd0079dec2f3864da6988e859907c28, type: 3}
       propertyPath: m_Name
-      value: vz31_ white
+      value: whitecar
+      objectReference: {fileID: 0}
+    - target: {fileID: 3297048997259378954, guid: 7dd0079dec2f3864da6988e859907c28, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3299264971615781858, guid: 7dd0079dec2f3864da6988e859907c28, type: 3}
       propertyPath: m_RootOrder
@@ -14366,7 +14386,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3299264971615781858, guid: 7dd0079dec2f3864da6988e859907c28, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.43
       objectReference: {fileID: 0}
     - target: {fileID: 3299264971615781858, guid: 7dd0079dec2f3864da6988e859907c28, type: 3}
       propertyPath: m_LocalPosition.z
@@ -14402,6 +14422,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7dd0079dec2f3864da6988e859907c28, type: 3}
+--- !u!1 &6866754220185155470 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3297048997259378954, guid: 7dd0079dec2f3864da6988e859907c28, type: 3}
+  m_PrefabInstance: {fileID: 6866754220185155469}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6866754220185155471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6866754220185155470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c24be9cda90ba343b0613c337561c05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isRunning: 1
+  speed: 6
+  rotationSens: 10
+  player: {fileID: 0}
 --- !u!1001 &9177113242324239318
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14409,6 +14450,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1601468564801279879, guid: a5e836934d626b647836cdfbdaf6b233, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5546393543333912483, guid: a5e836934d626b647836cdfbdaf6b233, type: 3}
       propertyPath: m_RootOrder
       value: 3

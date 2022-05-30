@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,10 +7,14 @@ using Touch = UnityEngine.InputSystem.EnhancedTouch.Touch;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public bool isRunning = true;
-    public float speed = 6.0f;
+    [SerializeField]
+    bool isRunning = true;
+    [SerializeField]
+    float speed = 6.0f;
+    [SerializeField]
+    float rotationSens = 10;
 
-    public Animator animator;
+    Animator animator;
     public GameObject player;
 
     void OnEnable()
@@ -26,7 +31,6 @@ public class PlayerMovement : MonoBehaviour
         TouchControl();
         Movement();
     }
-
     void Movement()
     {
         /*float translation = Input.GetAxis("Vertical") * speed;
@@ -42,7 +46,6 @@ public class PlayerMovement : MonoBehaviour
             transform.Translate(straffe, 0, translation);
         }
     }
-
     void TouchControl()
     {
         if (Touch.activeTouches.Count > 0)
@@ -67,18 +70,28 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("turn"))
         {
-            Debug.Log("Collision");
             turnLeft = collision.gameObject.GetComponent<TurnMechanic>().turnLeft;
             turnRight = collision.gameObject.GetComponent<TurnMechanic>().turnRight;
+            Quaternion originalRotationValue = transform.rotation;
             
             if(turnLeft)
             {
-                transform.Rotate(0, -90, 0);
+                StartCoroutine(IStartTurning(-90));
             }
             else if (turnRight)
             {
-                transform.Rotate(0, 90, 0);
+                StartCoroutine(IStartTurning(90));
             }
+        }
+    }
+    IEnumerator IStartTurning(float angle)
+    {
+        Quaternion currentRotation = transform.rotation;
+        Quaternion targetRotation = Quaternion.Euler(currentRotation.eulerAngles.x, currentRotation.eulerAngles.y + angle, currentRotation.eulerAngles.z);
+        while (Quaternion.Angle(transform.rotation, targetRotation) > 0.1f)
+        {
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSens);
+            yield return null;
         }
     }
 }

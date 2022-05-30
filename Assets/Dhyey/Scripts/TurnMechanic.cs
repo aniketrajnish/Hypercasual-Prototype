@@ -6,4 +6,10 @@ public class TurnMechanic : MonoBehaviour
 {
     public bool turnLeft = false;
     public bool turnRight = false;
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("Collision");
+        this.gameObject.SetActive(false);
+    }
 }
