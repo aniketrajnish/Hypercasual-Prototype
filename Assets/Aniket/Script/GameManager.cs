@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Cinemachine;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     [HideInInspector] public int playerLevel;
     [SerializeField] GameObject[] players;
+    float cooldown;
     void Awake()
     {
         instance = this;
@@ -20,12 +22,22 @@ public class GameManager : MonoBehaviour
     }     
     public void ChangePlayer()
     {
-        playerLevel++;
-        if (playerLevel < players.Length)
+        if (cooldown < 0f)
         {
-            Instantiate(players[playerLevel], PlayerManager.instance.transform.position, transform.rotation);
-            Destroy(PlayerManager.instance.gameObject);
+            playerLevel++;
+            if (playerLevel < players.Length)
+            {
+                GameObject go = PlayerManager.instance.gameObject;
+                GameObject go_new = Instantiate(players[playerLevel], go.transform.position, transform.rotation);
+                GameObject.FindObjectOfType<CinemachineVirtualCamera>().Follow = go_new.transform;
+                Destroy(go);
+                cooldown = 1f;
+            }
         }
+    }
+    private void Update()
+    {
+        cooldown -= Time.deltaTime;
     }
 }
 

@@ -11,9 +11,11 @@ public class MovementJoystick : MonoBehaviour
     public Vector2 joystickVector;
     private Vector2 joystickOriginalPosition;
     private float joystickRadius;
+    public static MovementJoystick instance;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
+        instance = this;
         joystickOriginalPosition = joystickBackground.transform.position;
         joystickRadius = joystickBackground.GetComponent<RectTransform>().sizeDelta.y / 4;
     }
