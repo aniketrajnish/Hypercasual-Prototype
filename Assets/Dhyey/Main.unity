@@ -14628,5 +14628,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: scooter
       objectReference: {fileID: 0}
+    - target: {fileID: 5546393543334284161, guid: a5e836934d626b647836cdfbdaf6b233, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5e836934d626b647836cdfbdaf6b233, type: 3}

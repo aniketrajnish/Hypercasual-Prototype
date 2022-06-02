@@ -46,12 +46,13 @@ public class PlayerMovement : MonoBehaviour
             transform.Translate(straffe, 0, translation);
         }
     }
+
     void TouchControl()
     {
         if (Touch.activeTouches.Count > 0)
         {
             Touch touch = Touch.activeTouches[0];
-            if(touch.isInProgress)
+            if (touch.isInProgress)
             {
                 isRunning = false;
                 Debug.Log("Touching");
@@ -60,6 +61,15 @@ public class PlayerMovement : MonoBehaviour
             {
                 isRunning = true;
             }
+        }
+        else if (Input.GetMouseButton(0))
+        {
+            isRunning = false;
+            Debug.Log("Touching");
+        }
+        else
+        {
+            isRunning = true;
         }
         animator.SetBool("isRunning", isRunning);
     }
