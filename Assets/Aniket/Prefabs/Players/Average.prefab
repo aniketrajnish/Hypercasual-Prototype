@@ -16,11 +16,11 @@ GameObject:
   - component: {fileID: 5700249431729831547}
   m_Layer: 0
   m_Name: Average
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3304150068305897074
 Transform:
   m_ObjectHideFlags: 0
@@ -126,6 +126,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b1d5ab05c051914dbac2e9e02b46b69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 25
-  rotationSpeed: 800
+  playerSpeed: 10
+  rotationSpeed: 1000
   playerHealth: 250
