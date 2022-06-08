@@ -15,7 +15,7 @@ public class vehicleAiController : MonoBehaviour
     public carNode currentNode;
 
     private Vector3 velocity, Destination, lastPosition;
-
+    public float errorDist = 1f;
     public float speed = 0.5f;
     void Start()
     {
@@ -37,7 +37,7 @@ public class vehicleAiController : MonoBehaviour
 
     void checkDistance()
     {
-        if (Vector3.Distance(transform.position, currentNode.transform.position) <= 3)
+        if (Vector3.Distance(transform.position, currentNode.transform.position) <= errorDist)
         {
             reachedDestination();
         }
@@ -57,7 +57,7 @@ public class vehicleAiController : MonoBehaviour
             return;
         }
 
-        if (currentNode.link != null && Random.Range(0, 100) <= 20)
+        if (currentNode.link != null && Random.Range(0, 100) <= 50)
             currentNode = currentNode.link;
         else
             currentNode = currentNode.nextWaypoint;
